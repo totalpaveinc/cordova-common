@@ -352,6 +352,8 @@ class PluginInfo {
             parent: attrib.parent,
             custom: isStrTrue(attrib.custom),
             embed: isStrTrue(attrib.embed),
+            // link has extra conditions for backwards compatibility. Only convert to boolean if it is explicitly set.
+            link: attrib.link === 'true' || attrib.link === 'false' ? isStrTrue(attrib.link) : null,
             src: expandVars(attrib.src),
             spec: attrib.spec,
             weak: isStrTrue(attrib.weak),
